@@ -13,6 +13,15 @@ class ProjectViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 
+    def get_queryset(self):
+        queryset = Project.objects.all()
+        tag = self.request.query_params.get('tag')
+        if tag:
+            queryset = queryset.filter(tech_stack__icontains=tag)
+        return queryset
+
+
+
 class ContactAPIView(APIView):
     """
     A View for creating contact messages.
