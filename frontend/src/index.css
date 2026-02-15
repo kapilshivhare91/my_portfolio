@@ -7,8 +7,8 @@
 
 body {
     font-family: var(--font-sans);
-    background-color: #050505;
-    color: #ffffff;
+    background-color: #FFF9F2;
+    color: #111827;
     overflow-x: hidden;
     cursor: none;
 }
@@ -18,8 +18,8 @@ body {
 }
 
 ::selection {
-    background: rgba(0, 242, 255, 0.3);
-    color: #00f2ff;
+    background: rgba(245, 158, 11, 0.2);
+    color: #d97706;
 }
 
 /* Custom scrollbar */
@@ -28,14 +28,45 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: #0a0a0a;
+    background: #FFF9F2;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #222;
+    background: #cbd5e1;
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #00f2ff;
+    background: #f59e0b;
+}
+
+/* Journey timeline scrollbar */
+.journey-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.journey-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.journey-scrollbar::-webkit-scrollbar-thumb {
+    background: #e2e8f0;
+    border-radius: 10px;
+}
+
+.journey-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #cbd5e1;
+}
+
+/* Pulse glow for active elements */
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 8px rgba(245, 158, 11, 0.4), 0 0 20px rgba(245, 158, 11, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 16px rgba(245, 158, 11, 0.6), 0 0 40px rgba(245, 158, 11, 0.2);
+    }
 }
