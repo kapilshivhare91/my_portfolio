@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { motion, useSpring } from 'framer-motion';
 
@@ -17,12 +16,12 @@ const CustomCursor: React.FC = () => {
       cursorY.set(e.clientY);
 
       const target = e.target as HTMLElement;
-      const isClickable = 
-        target.tagName.toLowerCase() === 'a' || 
+      const isClickable =
+        target.tagName.toLowerCase() === 'a' ||
         target.tagName.toLowerCase() === 'button' ||
         target.closest('button') ||
         target.closest('a');
-      
+
       setIsHovering(!!isClickable);
     };
 
@@ -33,21 +32,20 @@ const CustomCursor: React.FC = () => {
   return (
     <div className="fixed inset-0 pointer-events-none z-[9999] hidden md:block">
       {/* Small Dot */}
-      <div 
-        className="fixed w-2 h-2 bg-cyan-400 rounded-full mix-blend-difference"
-        style={{ 
+      <div
+        className="fixed w-2 h-2 bg-orange-500 rounded-full mix-blend-multiply"
+        style={{
           transform: `translate(${mousePosition.x - 4}px, ${mousePosition.y - 4}px)`,
           transition: 'transform 0.1s ease-out'
         }}
       />
-      
+
       {/* Outer Ring */}
-      <motion.div 
-        className={`fixed border border-cyan-400/50 rounded-full transition-all duration-300 ${
-          isHovering ? 'w-16 h-16 -ml-8 -mt-8 bg-cyan-400/10' : 'w-8 h-8 -ml-4 -mt-4'
-        }`}
-        style={{ 
-          x: cursorX, 
+      <motion.div
+        className={`fixed border border-orange-500/50 rounded-full transition-all duration-300 ${isHovering ? 'w-16 h-16 -ml-8 -mt-8 bg-orange-500/10' : 'w-8 h-8 -ml-4 -mt-4'
+          }`}
+        style={{
+          x: cursorX,
           y: cursorY,
         }}
       />
