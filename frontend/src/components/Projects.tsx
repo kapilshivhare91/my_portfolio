@@ -26,7 +26,7 @@ const Projects: React.FC = () => {
 
   if (loading) {
     return (
-      <section id="projects" className="py-24 px-6 md:px-20 max-w-7xl mx-auto flex justify-center text-cyan-400 font-mono">
+      <section id="projects" className="py-24 px-6 md:px-20 max-w-7xl mx-auto flex justify-center text-orange-500 font-mono">
         Loading Artifacts...
       </section>
     );
@@ -43,9 +43,9 @@ const Projects: React.FC = () => {
   return (
     <section id="projects" className="py-24 px-6 md:px-20 max-w-7xl mx-auto">
       <div className="mb-20">
-        <h2 className="text-[10px] font-mono text-cyan-400 tracking-[0.3em] mb-4 uppercase">FEATURED DEPLOYMENTS</h2>
-        <h3 className="text-4xl md:text-5xl font-black tracking-tight mb-6">SELECTED ARTIFACTS.</h3>
-        <p className="text-gray-400 max-w-xl font-light">
+        <h2 className="text-[10px] font-mono text-orange-500 tracking-[0.3em] mb-4 uppercase">FEATURED DEPLOYMENTS</h2>
+        <h3 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-6">SELECTED ARTIFACTS.</h3>
+        <p className="text-gray-600 max-w-xl font-light">
           A showcase of high-performance applications designed with scalability and visual impact in mind.
         </p>
       </div>

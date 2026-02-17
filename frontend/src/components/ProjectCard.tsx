@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Project } from '../types';
@@ -46,55 +45,55 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         rotateX,
         transformStyle: "preserve-3d",
       }}
-      className="relative w-full h-full group"
+      className="relative w-full h-full group cursor-pointer"
     >
       <div
-        className="absolute inset-0 bg-cyan-400/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        className="absolute inset-0 bg-orange-500/10 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         style={{ transform: "translateZ(-50px)" }}
       />
 
-      <div className="relative bg-[#0d0d0d] border border-white/5 rounded-xl overflow-hidden shadow-2xl transition-colors hover:border-cyan-400/30">
-        <div className="relative aspect-[16/10] overflow-hidden">
+      <div className="relative h-full bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm transition-all hover:border-orange-500/30 hover:shadow-xl flex flex-col">
+        <div className="relative aspect-[16/10] overflow-hidden shrink-0">
           <img
             src={project.image}
             alt={project.title}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-80" />
 
           <div className="absolute top-4 left-4">
-            <span className="px-3 py-1 bg-black/80 backdrop-blur-md border border-white/10 rounded-md text-[10px] font-mono text-cyan-400 uppercase tracking-widest">
+            <span className="px-3 py-1 bg-white/95 backdrop-blur-md border border-gray-200 rounded-md text-[10px] font-mono text-orange-600 uppercase tracking-widest shadow-sm">
               {project.id} // {project.category}
             </span>
           </div>
         </div>
 
-        <div className="p-8">
-          <h3 className="text-2xl font-bold mb-3 group-hover:text-cyan-400 transition-colors">{project.title}</h3>
-          <p className="text-gray-400 text-sm mb-6 leading-relaxed line-clamp-2">
+        <div className="p-8 flex flex-col flex-1">
+          <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-orange-500 transition-colors">{project.title}</h3>
+          <p className="text-gray-600 text-sm mb-6 leading-relaxed line-clamp-2">
             {project.description}
           </p>
 
-          <div className="flex flex-wrap gap-2 mb-8">
+          <div className="flex flex-wrap gap-2 mb-8 mt-auto">
             {project.techStack.map(tech => (
-              <span key={tech} className="text-[10px] px-2 py-0.5 rounded-full border border-white/10 bg-white/5 font-mono text-gray-300">
+              <span key={tech} className="text-[10px] px-2 py-0.5 rounded-full border border-orange-500/20 bg-orange-50 font-mono text-gray-700">
                 {tech}
               </span>
             ))}
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 border-t border-gray-100 pt-6">
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
-                className="px-6 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded text-xs font-bold text-cyan-400 hover:bg-cyan-500 hover:text-black transition-all"
+                className="px-6 py-2 bg-orange-500 border border-transparent rounded text-xs font-bold text-white hover:bg-orange-600 shadow-sm hover:shadow-md transition-all"
               >
                 LIVE DEMO
               </a>
             )}
             <a
               href={project.githubUrl}
-              className="text-xs font-bold text-gray-400 hover:text-white transition-colors"
+              className="text-xs font-bold text-gray-500 hover:text-orange-600 transition-colors"
             >
               SOURCE CODE
             </a>
