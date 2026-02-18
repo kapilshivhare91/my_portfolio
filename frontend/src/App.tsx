@@ -1,5 +1,7 @@
 
 
+import { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import CustomCursor from './components/CustomCursor';
 import BackgroundEffect from './components/BackgroundEffect';
 import Navbar from './components/Navbar';
@@ -10,25 +12,39 @@ import Skills from './components/Skills';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import MatrixLoader from './components/MatrixLoader';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
-    <div className="relative min-h-screen bg-[#FFF9F2] text-gray-900">
-      <CustomCursor />
-      <BackgroundEffect />
-      <Navbar />
+    <>
+      <AnimatePresence>
+        {isLoading && (
+          <MatrixLoader key="loader" onComplete={() => setIsLoading(false)} />
+        )}
+      </AnimatePresence>
 
-      <main className="relative z-10">
-        <Hero />
-        <Projects />
-        <TimeTravelJourney />
-        <Skills />
-        <About />
-        <Contact />
-      </main>
+      {/* Main Portfolio Content. We only render it functionally if loading is complete or 
+          we render it underneath and let the loader slide up like a curtain. Since the loader 
+          slides up (y: -100%), rendering the main app immediately underneath is correct! */}
+      <div className={`relative min-h-screen bg-[#FFF9F2] text-gray-900 ${isLoading ? 'h-screen overflow-hidden' : ''}`}>
+        <CustomCursor />
+        <BackgroundEffect />
+        <Navbar />
 
-      <Footer />
-    </div>
+        <main className="relative z-10">
+          <Hero />
+          <Projects />
+          <TimeTravelJourney />
+          <Skills />
+          <About />
+          <Contact />
+        </main>
+
+        <Footer />
+      </div>
+    </>
   );
 }
 
