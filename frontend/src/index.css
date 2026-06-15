@@ -10,7 +10,6 @@ body {
     background-color: #FFF9F2;
     color: #111827;
     overflow-x: hidden;
-    cursor: none;
 }
 
 .font-mono {
@@ -69,4 +68,11 @@ body {
     50% {
         box-shadow: 0 0 16px rgba(245, 158, 11, 0.6), 0 0 40px rgba(245, 158, 11, 0.2);
     }
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }

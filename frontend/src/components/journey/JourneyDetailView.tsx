@@ -61,7 +61,7 @@ const JourneyDetailView: React.FC<JourneyDetailViewProps> = ({
                 <motion.div
                     layoutId={`journey-card-${milestone.hour}`}
                     className="relative rounded-3xl overflow-hidden mb-12 shadow-2xl border border-gray-200"
-                    style={{ aspectRatio: "16/7" }}
+                    style={{ aspectRatio: "1/1" }}
                 >
                     <img
                         src={milestone.image}

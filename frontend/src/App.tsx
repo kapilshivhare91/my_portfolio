@@ -2,11 +2,10 @@
 
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import CustomCursor from './components/CustomCursor';
 import BackgroundEffect from './components/BackgroundEffect';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Projects from './components/Projects';
+import Hero from './components/hero/Hero';
+import Projects from './components/projects/Projects';
 import TimeTravelJourney from './components/journey/TimeTravelJourney';
 import Skills from './components/Skills';
 import About from './components/About';
@@ -29,11 +28,10 @@ function App() {
           we render it underneath and let the loader slide up like a curtain. Since the loader 
           slides up (y: -100%), rendering the main app immediately underneath is correct! */}
       <div className={`relative min-h-screen bg-[#FFF9F2] text-gray-900 ${isLoading ? 'h-screen overflow-hidden' : ''}`}>
-        <CustomCursor />
         <BackgroundEffect />
         <Navbar />
 
-        <main className="relative z-10">
+        <main className="relative z-10 w-full overflow-x-hidden">
           <Hero />
           <Projects />
           <TimeTravelJourney />
